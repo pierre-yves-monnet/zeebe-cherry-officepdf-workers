@@ -20,7 +20,7 @@
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="Flow_1ux9lky" sourceRef="StartStartEvent" targetRef="LoadPdfFileTask" />
     <bpmn:sequenceFlow id="Flow_0p1344m" sourceRef="SaveWatermarkTask" targetRef="ReviewTask" />
-    <bpmn:endEvent id="FineEndEvent" name="Fine">
+    <bpmn:endEvent id="FineEndEvent" name="Produced">
       <bpmn:incoming>Flow_175ksxa</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="Flow_175ksxa" sourceRef="ReviewTask" targetRef="FineEndEvent" />
@@ -149,14 +149,11 @@
         <dc:Bounds x="290" y="77" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_14n3n8y_di" bpmnElement="AddTopWatermarkInputTask">
-        <dc:Bounds x="440" y="77" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0thc40l_di" bpmnElement="AddCenterWatermarkTask">
-        <dc:Bounds x="500" y="170" width="100" height="80" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_005h2kw_di" bpmnElement="AddBottomWatermarkTask">
-        <dc:Bounds x="550" y="260" width="100" height="80" />
+      <bpmndi:BPMNShape id="Event_0c8snmz_di" bpmnElement="FineEndEvent">
+        <dc:Bounds x="1022" y="282" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1016" y="325" width="48" height="14" />
+        </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0p98lqk_di" bpmnElement="SaveWatermarkTask">
         <dc:Bounds x="710" y="260" width="100" height="80" />
@@ -171,11 +168,14 @@
           <dc:Bounds x="970" y="425" width="42" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0c8snmz_di" bpmnElement="FineEndEvent">
-        <dc:Bounds x="1022" y="282" width="36" height="36" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1029" y="325" width="22" height="14" />
-        </bpmndi:BPMNLabel>
+      <bpmndi:BPMNShape id="Activity_005h2kw_di" bpmnElement="AddBottomWatermarkTask">
+        <dc:Bounds x="550" y="260" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0thc40l_di" bpmnElement="AddCenterWatermarkTask">
+        <dc:Bounds x="500" y="170" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_14n3n8y_di" bpmnElement="AddTopWatermarkInputTask">
+        <dc:Bounds x="440" y="77" width="100" height="80" />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0x7axdw_di" bpmnElement="Event_0miquld">
         <dc:Bounds x="912" y="322" width="36" height="36" />
