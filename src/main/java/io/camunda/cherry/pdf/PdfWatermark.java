@@ -4,17 +4,16 @@
 /*                                                                      */
 /*  Add a Watermark in a PDF document                                   */
 /* ******************************************************************** */
-package org.camunda.cherry.pdf;
+package io.camunda.cherry.pdf;
 
+import io.camunda.cherry.definition.BpmnError;
+import io.camunda.cherry.definition.RunnerParameter;
+import io.camunda.cherry.definition.filevariable.FileVariable;
+import io.camunda.cherry.definition.filevariable.StorageDefinition;
 import io.camunda.zeebe.client.api.response.ActivatedJob;
 import io.camunda.zeebe.client.api.worker.JobClient;
 import io.camunda.zeebe.spring.client.exception.ZeebeBpmnError;
 import org.apache.pdfbox.pdmodel.PDDocument;
-import org.camunda.cherry.definition.BpmnError;
-import org.camunda.cherry.definition.RunnerParameter;
-import org.camunda.cherry.definition.filevariable.FileVariable;
-import org.camunda.cherry.definition.filevariable.FileVariableFactory;
-import org.camunda.cherry.definition.filevariable.StorageDefinition;
 import org.springframework.stereotype.Component;
 
 import java.awt.*;
@@ -123,7 +122,7 @@ public class PdfWatermark extends PdfWorker {
     @Override
     public void execute(final JobClient jobClient, final ActivatedJob activatedJob, ContextExecution contextExecution) {
 
-        FileVariable sourceFileVariable = getFileVariableValue(INPUT_SOURCE_FILE, activatedJob);
+        FileVariable sourceFileVariable = getInputFileVariableValue(INPUT_SOURCE_FILE, activatedJob);
 
         String destinationFileName = getInputStringValue(INPUT_DESTINATION_FILE_NAME, null, activatedJob);
         String destinationStorageDefinitionSt = getInputStringValue(INPUT_DESTINATION_STORAGEDEFINITION, null, activatedJob);

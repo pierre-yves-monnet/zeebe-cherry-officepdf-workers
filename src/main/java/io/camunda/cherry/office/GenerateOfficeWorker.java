@@ -5,21 +5,20 @@
 /*  Generate a office document (Microsoft, OpenOffice) from a template  */
 /*  and a dictionary ti replace the place holder in the document        */
 /* ******************************************************************** */
-package org.camunda.cherry.office;
+package io.camunda.cherry.office;
 
 import fr.opensagres.xdocreport.document.IXDocReport;
 import fr.opensagres.xdocreport.document.registry.XDocReportRegistry;
 import fr.opensagres.xdocreport.template.IContext;
 import fr.opensagres.xdocreport.template.TemplateEngineKind;
+import io.camunda.cherry.definition.AbstractWorker;
+import io.camunda.cherry.definition.BpmnError;
+import io.camunda.cherry.definition.RunnerParameter;
+import io.camunda.cherry.definition.filevariable.FileVariable;
+import io.camunda.cherry.definition.filevariable.StorageDefinition;
 import io.camunda.zeebe.client.api.response.ActivatedJob;
 import io.camunda.zeebe.client.api.worker.JobClient;
 import io.camunda.zeebe.spring.client.exception.ZeebeBpmnError;
-import org.camunda.cherry.definition.AbstractWorker;
-import org.camunda.cherry.definition.BpmnError;
-import org.camunda.cherry.definition.RunnerParameter;
-import org.camunda.cherry.definition.filevariable.FileVariable;
-import org.camunda.cherry.definition.filevariable.FileVariableFactory;
-import org.camunda.cherry.definition.filevariable.StorageDefinition;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -86,7 +85,7 @@ public class GenerateOfficeWorker extends AbstractWorker {
     @Override
     public void execute(final JobClient jobClient, final ActivatedJob activatedJob, ContextExecution contextExecution) {
         String sourceStorageDefinition = getInputStringValue(INPUT_SOURCE_STORAGEDEFINITION, null, activatedJob);
-        FileVariable sourceFileVariable = getFileVariableValue(INPUT_SOURCE_FILE, activatedJob);
+        FileVariable sourceFileVariable = getInputFileVariableValue(INPUT_SOURCE_FILE, activatedJob);
 
         String destinationFileName = getInputStringValue(INPUT_DESTINATION_FILE_NAME, null, activatedJob);
         String destinationStorageDefinitionSt = getInputStringValue(INPUT_DESTINATION_STORAGEDEFINITION, null, activatedJob);
