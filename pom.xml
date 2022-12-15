@@ -17,6 +17,7 @@
     <connector-core.version>0.3.0</connector-core.version>
     <connector-validation.version>0.3.0</connector-validation.version>
 
+    <!-- 2.1 contains the file.storage library -->
     <cherry.version>2.1.0</cherry.version>
     <cherryofficepdf.version>1.0.0</cherryofficepdf.version>
 
